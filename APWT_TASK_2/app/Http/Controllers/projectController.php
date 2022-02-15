@@ -15,6 +15,22 @@ class projectController extends Controller
     {
         return view ('contact');
     }
+
+    public function contactUs(Request $request)
+    {$validate=$request->validate(
+        [
+        'email'=>'required',
+        'message'=>'required',
+        'phoneno'=>'required',
+        ],
+    [
+        'email.required'=>'Please enter your mail',
+        'phoneno.required'=>'Please enter your phone number',
+        'message.required'=>'Say something',
+    ]
+        );
+    }
+    
     public function aboutUs()
     {
         return view ('aboutUs');
